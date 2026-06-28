@@ -164,8 +164,9 @@ def get_payment_link(service: str, tier: str,
         payment["instructions"] = "Pay via card, Apple Pay, or Google Pay"
     elif method in ("usdc", "usdt"):
         payment["payment_url"] = f"https://talimna.com/pay/{pay_id}"
-        payment["wallet_address"] = "Coming soon — notify when USDC wallet is set up"
-        payment["instructions"] = f"Send {price} {method.upper()} to wallet address above"
+        wallet = "CESJmirHhG9Vh2Wd7BXzQTiFcP86YyQvTJdawW4WUDxW"
+        payment["wallet_address"] = wallet
+        payment["instructions"] = f"Send {price} USDC (Solana) to: {wallet}"
     elif method == "bank_transfer":
         payment["payment_url"] = f"https://talimna.com/invoice/{pay_id}"
         payment["instructions"] = "Wire to Mercury bank account. Details on invoice."
