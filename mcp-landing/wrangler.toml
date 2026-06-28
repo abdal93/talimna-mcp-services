@@ -1,0 +1,6 @@
+name = "talimna-mcp-services"
+compatibility_date = "2026-06-28"
+
+[pages]
+build_command = ""
+build_output_dir = "."

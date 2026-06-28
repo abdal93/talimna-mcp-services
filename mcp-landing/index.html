@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TALIMNA MCP Services — BRICS+ Commerce Infrastructure</title>
+<meta name="description" content="API-first commerce infrastructure for BRICS+ trade corridors. Translation, compliance, matchmaking, logistics, intelligence, content, and digital commerce.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#e0e0e0;line-height:1.6}
+.container{max-width:1100px;margin:0 auto;padding:20px}
+header{text-align:center;padding:60px 20px 40px}
+header h1{font-size:2.2em;color:#fff;margin-bottom:10px}
+header p{color:#888;font-size:1.1em}
+.tagline{color:#4CAF50;font-weight:600;margin-bottom:5px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin:30px 0}
+.card{background:#1a1a1a;border:1px solid #2a2a2a;border-radius:12px;padding:24px;transition:border-color 0.2s}
+.card:hover{border-color:#4CAF50}
+.card .port{color:#666;font-size:0.85em;font-family:monospace;margin-bottom:4px}
+.card h3{color:#fff;font-size:1.2em;margin-bottom:8px}
+.card .desc{color:#999;font-size:0.9em;margin-bottom:12px;min-height:40px}
+.card .tools{color:#4CAF50;font-size:0.85em;margin-bottom:8px;font-family:monospace}
+.card .price{color:#ffd700;font-size:0.85em}
+.price-row{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.price-tag{background:#2a2a2a;padding:4px 10px;border-radius:6px;font-size:0.8em;color:#ccc}
+.price-tag b{color:#ffd700}
+.section-title{font-size:1.5em;color:#fff;margin:40px 0 20px;text-align:center}
+.payment-methods{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:30px 0}
+.pm{background:#1a1a1a;border:1px solid #2a2a2a;border-radius:8px;padding:12px 20px;text-align:center;min-width:140px}
+.pm.recommended{border-color:#4CAF50}
+.pm .label{color:#888;font-size:0.8em}
+.pm .value{color:#fff;font-weight:600}
+.pm .badge{background:#4CAF50;color:#000;font-size:0.7em;padding:2px 8px;border-radius:4px;font-weight:600}
+.halal{border-top:1px solid #2a2a2a;margin-top:40px;padding-top:30px;text-align:center}
+.halal h3{color:#4CAF50;margin-bottom:10px}
+.halal p{color:#888;font-size:0.9em;max-width:600px;margin:0 auto}
+footer{text-align:center;padding:40px;color:#555;font-size:0.85em}
+a{color:#4CAF50;text-decoration:none}
+.btn{display:inline-block;background:#4CAF50;color:#000;padding:10px 24px;border-radius:8px;font-weight:600;font-size:0.9em;margin-top:12px;transition:background 0.2s}
+.btn:hover{background:#5dbf5d}
+.contact{color:#888;font-size:0.9em;margin-top:20px}
+.wallet-box{background:#1a1a1a;border:1px solid #2a2a2a;border-radius:8px;padding:12px 16px;font-family:monospace;font-size:0.8em;color:#888;word-break:break-all;margin-top:8px}
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="tagline">⚡ TALIMNA — BRICS+ Commerce Infrastructure</div>
+    <h1>MCP Services</h1>
+    <p>8 API-first servers for cross-border trade across $1.7T BRICS+ corridors</p>
+  </header>
+
+  <div class="grid">
+    <div class="card">
+      <div class="port">:8000</div>
+      <h3>Logistics Dispatch</h3>
+      <div class="desc">SEA route optimization, dispatching, real-time tracking</div>
+      <div class="tools">dispatch_order · optimize_route · track_shipment · geocode</div>
+      <div class="price-row">
+        <span class="price-tag"><b>$2</b>/dispatch</span>
+        <span class="price-tag"><b>$99</b>/mo starter</span>
+        <span class="price-tag"><b>$999</b>/mo enterprise</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="port">:8001</div>
+      <h3>Trade Translation</h3>
+      <div class="desc">Translate trade docs across 34 BRICS+ languages</div>
+      <div class="tools">translate_doc · batch_translate · detect · extract_fields</div>
+      <div class="price-row">
+        <span class="price-tag"><b>$0.10</b>/word</span>
+        <span class="price-tag"><b>$200</b>/mo volume</span>
+        <span class="price-tag"><b>$500</b>/mo enterprise</span>
+      </div>
+    </div>
+
+    <div class="card" style="border-color:#4CAF50">
+      <div class="port">:8002</div>
+      <h3>Sharia Compliance ★</h3>
+      <div class="desc">Halal cert verification, zakat, riba detection — 8 cert bodies</div>
+      <div class="tools">screen_tx · zakat · detect_riba · verify_halal_cert · trace_ingredient</div>
+      <div class="price-row">
+        <span class="price-tag"><b>$0.50</b>/screen</span>
+        <span class="price-tag"><b>$99</b>/mo starter</span>
+        <span class="price-tag"><b>$999</b>/mo enterprise</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="port">:8003</div>
+      <h3>Trade Intelligence</h3>
+      <div class="desc">BRICS+ trade data, market intel, supplier verification</div>
+      <div class="tools">query_volume · market_intel · verify_supplier · monitor · datasets</div>
+      <div class="price-row">
+        <span class="price-tag"><b>$300</b>/dataset</span>
+        <span class="price-tag"><b>$199</b>/mo data</span>
+        <span class="price-tag"><b>$499</b>/mo API</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="port">:8004</div>
+      <h3>Trade Matchmaking</h3>
+      <div class="desc">B2B buyer-supplier matching across 8 BRICS+ corridors</div>
+      <div class="tools">find_buyers · find_suppliers · match_score · negotiate</div>
+      <div class="price-row">
+        <span class="price-tag"><b>$50</b>/match</span>
+        <span class="price-tag"><b>$99</b>/mo starter</span>
+        <span class="price-tag"><b>$999</b>/mo unlimited</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="port">:8005</div>
+      <h3>Industrial Content</h3>
+      <div class="desc">Trade docs, compliance manuals, NDB proposal templates</div>
+      <div class="tools">generate_doc · compliance_manual · catalog · purchase</div>
+      <div class="price-row">
+        <span class="price-tag"><b>$149</b>/document</span>
+        <span class="price-tag"><b>$199</b>/mo content</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="port">:8006</div>
+      <h3>Digital Commerce</h3>
+      <div class="desc">Trade tools, templates, AI prompts, Islamic content</div>
+      <div class="tools">list_products · process_order · manage_license</div>
+      <div class="price-row">
+        <span class="price-tag"><b>$12-79</b>/product</span>
+        <span class="price-tag"><b>5×</b> commercial license</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="port">:8007</div>
+      <h3>Payment API</h3>
+      <div class="desc">Generate payment links, invoices, process payments</div>
+      <div class="tools">get_payment_link · process_payment · invoice · methods</div>
+      <div class="price-row">
+        <span class="price-tag"><b>USDC</b> Solana</span>
+        <span class="price-tag"><b>Stripe</b> Cards</span>
+        <span class="price-tag"><b>Bank</b> Wire</span>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="section-title">How to Pay</h2>
+  <div class="payment-methods">
+    <div class="pm recommended">
+      <div class="badge">RECOMMENDED</div>
+      <div class="label">USDC</div>
+      <div class="value">Solana</div>
+      <div class="wallet-box" style="font-size:0.7em">CESJmirHhG9Vh2Wd7BXzQTiFcP86YyQvTJdawW4WUDxW</div>
+    </div>
+    <div class="pm">
+      <div class="label">Stripe</div>
+      <div class="value">Cards, Apple Pay</div>
+      <div class="label" style="margin-top:4px">Via talimna.com</div>
+    </div>
+    <div class="pm">
+      <div class="label">Bank Transfer</div>
+      <div class="value">Mercury Bank</div>
+      <div class="label" style="margin-top:4px">For B2B >$1K</div>
+    </div>
+  </div>
+
+  <div class="halal">
+    <h3>✓ Halal-Compliant Operations</h3>
+    <p>All services operate on Ijara (fixed lease), Bai' (sale), or Ju'ala (commission) contracts. Zero riba, zero gharar, zero maysir. Zakat auto-calculated on profits. All 8 certification bodies recognized including JAKIM, BPJPH, ESMA, SFDA.</p>
+  </div>
+
+  <div class="contact">
+    <p>Contact: <a href="mailto:arya.wang@talimna.com">arya.wang@talimna.com</a> &nbsp;|&nbsp; CEO: Arya Wang</p>
+    <p style="margin-top:5px;color:#555">TALIMNA — Building commerce infrastructure for the multipolar world</p>
+  </div>
+
+  <footer>
+    TALIMNA MCP Services &copy; 2026 &nbsp;|&nbsp; <a href="https://github.com/abdal93/talimna-mcp-services">GitHub</a> &nbsp;|&nbsp; <a href="https://talimna.com">talimna.com</a>
+  </footer>
+</div>
+</body>
+</html>
