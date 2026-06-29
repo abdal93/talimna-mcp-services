@@ -17,7 +17,7 @@ app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], all
 MCP_TOOLS = {
     "load_cargo_manifest": {"description": "Ingest cargo manifest — auto-screens halal, matches routes",
         "input_schema": {"type": "object", "properties": {
-            "cargo_type": {"type": "string", "enum": ["coconut_oil", "dates", "palm_oil", "coffee_beans", "textiles"]},
+            "cargo_type": {"type": "string", "enum": ["dates", "coconut", "durum_wheat", "rice", "lentils", "soybeans", "sheep", "goats", "chicken", "honey", "fish"]},
             "volume": {"type": "number"}, "origin": {"type": "string"},
             "destination": {"type": "string"}, "seller": {"type": "string"},
             "buyer": {"type": "string"}, "cert_required": {"type": "string"},
