@@ -88,6 +88,14 @@ CARGO_TYPES = {
         "unit": "KG",
         "halal_requirements": ["No alcohol processing", "Natural honey only"],
     },
+    "donkey": {
+        "type": "Livestock - Equine",
+        "hs_code": "0101.30",
+        "origin": "Ethiopia / Kenya / Sudan",
+        "packaging": "Live export container / Truck",
+        "unit": "Head",
+        "halal_requirements": ["Animal welfare compliance", "Veterinary clearance"],
+    },
     "fish": {
         "type": "Fisheries - Seafood",
         "hs_code": "0303.89",
