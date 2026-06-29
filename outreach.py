@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+"""TALIMNA Client Acquisition — OSINT Vetted Prospects"""
 import sys, json, ssl, smtplib
 from email.message import EmailMessage
 
@@ -8,18 +9,12 @@ ADDR = "arya.wang@talimna.com"
 PASS = os.environ.get("TALIMNA_SMTP_PASS", "")
 
 TARGETS = [
-    {"to": "info@alghurair.com", "company": "Al Ghurair Food Trading", "tmpl": "importer"},
-    {"to": "export@pt-halalfood.com", "company": "PT Halal Food Jakarta", "tmpl": "exporter"},
-    {"to": "export@cpf.co.th", "company": "CP Foods Thailand", "tmpl": "exporter"},
-    {"to": "trade@cofco.com", "company": "COFCO International", "tmpl": "bulk"},
-    {"to": "supplychain@almarai.com", "company": "Almarai Company", "tmpl": "importer"},
+    {"to": "contact@alghurair.com", "company": "Al Ghurair Group", "country": "UAE", "tmpl": "importer"},
+    {"to": "info@savola.com", "company": "Savola Group", "country": "Saudi Arabia", "tmpl": "importer"},
+    {"to": "info@albwardy.com", "company": "Albwardy Investment", "country": "UAE", "tmpl": "importer"},
+    {"to": "info@gulftrading.ae", "company": "Gulf Trading & Services", "country": "UAE", "tmpl": "importer"},
+    {"to": "export@indofood.co.id", "company": "Indofood Sukses Makmur", "country": "Indonesia", "tmpl": "exporter"},
 ]
-
-PITCHES = {
-    "importer": lambda c: f"Al-Jalib Corridor access — SEA halal supplier pipeline for {c}. Our system automates cargo, customs, cert verification, and settlement.",
-    "exporter": lambda c: f"Gulf buyer matching for {c} via TALIMNA's export pipeline. Automated logistics, halal compliance, and documentation.",
-    "bulk": lambda c: f"BRICS+ commodity corridor infrastructure for {c} — route optimization, automated docs, no-SWIFT settlement.",
-}
 
 SUBJECTS = {
     "importer": "SEA Halal Supplier Pipeline — Al-Jalib Corridor Access",
@@ -65,25 +60,6 @@ Arya Wang
 CEO, TALIMNA
 arya.wang@talimna.com
 mcp.talimna.com""",
-
-    "bulk": """Dear {company} Team,
-
-TALIMNA provides algorithmic trade infrastructure for BRICS+ commodity corridors. Our Al-Jalib system handles:
-
-- Real-time route optimization and freight dispatch
-- Automated documentation (manifests, BL, customs)
-- Multi-currency settlement bypassing USD/SWIFT
-- Trade intelligence for BRICS+ corridors
-
-We are operational on 10 corridors with live API services.
-
-Happy to schedule a brief demonstration.
-
-Best regards,
-Arya Wang
-CEO, TALIMNA
-arya.wang@talimna.com
-mcp.talimna.com""",
 }
 
 def send(to, subject, body):
@@ -99,27 +75,35 @@ def send(to, subject, body):
         s.send_message(msg)
     return True
 
-if __name__ == "__main__":
-    if len(sys.argv) > 1 and sys.argv[1] == "all":
+if len(sys.argv) < 2:
+    print("Usage: python3 outreach.py preview|send <name>|send all")
+    sys.exit(1)
+
+if sys.argv[1] == "preview":
+    for t in TARGETS:
+        body = BODIES[t["tmpl"]].format(company=t["company"])
+        print(f"\n{'='*50}")
+        print(f"TO: {t['company']} <{t['to']}>")
+        print(f"SUBJECT: {SUBJECTS[t['tmpl']]}")
+        print(body[:200] + "...")
+
+elif sys.argv[1] == "send":
+    if len(sys.argv) > 2 and sys.argv[2] == "all":
         sent = 0
         for t in TARGETS:
             body = BODIES[t["tmpl"]].format(company=t["company"])
-            subj = SUBJECTS[t["tmpl"]]
-            try:
-                send(t["to"], subj, body)
-                print(f"✅ {t['company']:30} → {t['to']}")
-                sent += 1
-            except Exception as e:
-                print(f"❌ {t['company']:30} → {e}")
-        print(f"\nSent {sent}/{len(TARGETS)} emails")
-    elif len(sys.argv) > 1 and sys.argv[1] == "preview":
+            send(t["to"], SUBJECTS[t["tmpl"]], body)
+            print(f"✅ {t['company']:30} → {t['to']}")
+            sent += 1
+        print(f"\nSent {sent}/{len(TARGETS)}")
+    elif len(sys.argv) > 2:
+        name = sys.argv[2].lower()
         for t in TARGETS:
-            body = BODIES[t["tmpl"]].format(company=t["company"])
-            print(f"\n{'='*50}")
-            print(f"TO: {t['company']} <{t['to']}>")
-            print(f"SUBJECT: {SUBJECTS[t['tmpl']]}")
-            print(body[:150] + "...")
-    else:
-        print("Usage: outreach.py preview|all")
-        print("  preview  — show all emails without sending")
-        print("  all      — send to all prospects")
+            if name in t["company"].lower():
+                body = BODIES[t["tmpl"]].format(company=t["company"])
+                send(t["to"], SUBJECTS[t["tmpl"]], body)
+                print(f"✅ Sent to {t['company']} <{t['to']}>")
+                break
+        else:
+            print(f"Target not found: {name}")
+            print(f"Available: {[t['company'] for t in TARGETS]}")
